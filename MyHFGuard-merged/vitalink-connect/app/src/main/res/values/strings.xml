@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">MyHFGuard</string>
+    <string name="grant_permissions">Grant Permissions</string>
+    <string name="read_steps">Read Steps</string>
+    <string name="collect_health_data">Collect Health Data</string>
+    <string name="scan_to_capture">Scan to Capture</string>
+    <!-- Use non-vitalink URL for scan/capture frontend -->
+    <string name="scan_capture_url">https://myhfguardhost.github.io/MyHFGuard/#/vitals</string>
+    <string name="web_app_url">https://myhfguardhost.github.io/MyHFGuard/#</string>
+    <string name="web_register_url">https://myhfguardhost.github.io/MyHFGuard/register</string>
+    <string name="export_data">Export Data</string>
+    <string name="logout">Logout</string>
+    <string name="availability_missing">Health Connect not available</string>
+    <!-- Use local server for development to access new endpoints -->
+    <!-- <string name="server_base_url">http://192.168.0.199:3001</string> -->
+    <string name="server_base_url">https://myhfguard.onrender.com</string>
+    <string name="subtitle_manage_health">Collect and manage your health data</string>
+    <string name="banner_permissions_missing">Grant permissions to collect health data</string>
+    <string name="banner_permissions_granted">Permissions Granted — You can now collect health data</string>
+    <string name="banner_title_required">Permissions Required</string>
+    <string name="banner_desc_required">Grant access to collect health metrics</string>
+    <string name="banner_title_granted">Permissions Granted</string>
+    <string name="banner_desc_granted">You can now collect health data</string>
+    <string name="hr_last_hour_no_samples">HR last hour: no samples</string>
+    <string name="hr_last_hour">HR last hour: min %1$d, max %2$d, avg %3$d</string>
+    <string name="hr_today_no_samples">HR today: no samples</string>
+    <string name="hr_today">HR today: min %1$d, max %2$d, avg %3$d</string>
+    <string name="hr_diag">HR diagnostics: today %1$d, week %2$d, last %3$s</string>
+    <string name="supabase_url">https://sqmiosfervzwrxjastdg.supabase.co</string>
+    <string name="supabase_anon_key">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxbWlvc2ZlcnZ6d3J4amFzdGRnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2Nzk1NDMsImV4cCI6MjA4MDI1NTU0M30.2Y8hae6GXjBBd1w5Qg51PwKPdSFOaxU7lF7gOsvmijE</string>
+    <!-- Use local server for development -->
+    <!-- <string name="api_base_url">http://192.168.0.199:3001</string> -->
+    <string name="api_base_url">https://myhfguard.onrender.com</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="already_have_account">Already have an account? Login</string>
+    <string name="no_account">Don\'t have an account? Register</string>
+</resources>

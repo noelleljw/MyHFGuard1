@@ -1,0 +1,6 @@
+# Supabase Configuration
+# Copy this file to local.properties and fill in your actual values
+# DO NOT commit local.properties to version control!
+
+SUPABASE_URL=https://sqmiosfervzwrxjastdg.supabase.co
+SUPABASE_PUBLISHABLE_KEY=sb_publishable_ttVwRkdR2rc0C5WLe24xGQ_UUIU9i9F

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Header -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/cardBackground"
+        android:elevation="4dp"
+        android:gravity="center_vertical">
+
+        <ImageButton
+              android:id="@+id/btnBack"
+              android:layout_width="40dp"
+              android:layout_height="40dp"
+              android:src="@drawable/ic_arrow_back"
+              android:background="?attr/selectableItemBackgroundBorderless"
+              app:tint="@color/foreground"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:contentDescription="Back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/foreground"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Permissions"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/foreground"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Please search for MyHFGuard in your device settings and enable these permissions to ensure the app works correctly."
+                android:textColor="@color/hintText"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Notifications -->
+            <LinearLayout
+                android:id="@+id/btnNotificationPermission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="12dp"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Notifications"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/foreground"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enable reminders and alerts"
+                    android:textSize="14sp"
+                    android:textColor="@color/hintText"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border"/>
+
+            <!-- Exact Alarms -->
+            <LinearLayout
+                android:id="@+id/btnExactAlarmPermission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="12dp"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Alarms &amp; Reminders"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/foreground"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Allow exact timing for important alerts"
+                    android:textSize="14sp"
+                    android:textColor="@color/hintText"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border"/>
+
+            <!-- Battery Optimization -->
+            <LinearLayout
+                android:id="@+id/btnBatteryOptimization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="12dp"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Battery Optimization"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/foreground"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Disable optimization to ensure background sync"
+                    android:textSize="14sp"
+                    android:textColor="@color/hintText"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border"/>
+
+            <!-- System Settings -->
+            <LinearLayout
+                android:id="@+id/btnAppSystemSettings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="12dp"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="System Settings"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/foreground"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Open full app info page"
+                    android:textSize="14sp"
+                    android:textColor="@color/hintText"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Measurement Reminders"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/foreground"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Morning Reminder -->
+            <LinearLayout
+                android:id="@+id/btnMorningReminder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Morning Reminder"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/foreground"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Daily Health Log"
+                        android:textSize="14sp"
+                        android:textColor="@color/hintText"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/txtMorningTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="09:00 AM"
+                    android:textSize="16sp"
+                    android:textColor="@color/btnPrimary"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border"/>
+
+            <!-- Afternoon Reminder -->
+            <LinearLayout
+                android:id="@+id/btnAfternoonReminder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Afternoon Reminder"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/foreground"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Check for missing records"
+                        android:textSize="14sp"
+                        android:textColor="@color/hintText"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/txtAfternoonTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="03:00 PM"
+                    android:textSize="16sp"
+                    android:textColor="@color/btnPrimary"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Account"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/foreground"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Log Out"
+                android:backgroundTint="#B00020"
+                android:textColor="@android:color/white"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,23 @@
+<resources>
+    <!-- Primary: hsl(195 85% 51%) = #1AB3E6 (lighter for dark mode) -->
+    <color name="btnPrimary">#1AB3E6</color>
+    <color name="btnOnPrimary">#FFFFFF</color>
+    <!-- Secondary: hsl(142 52% 66%) = #6CCB7A (lighter for dark mode) -->
+    <color name="btnSecondary">#6CCB7A</color>
+    <color name="btnOnSecondary">#FFFFFF</color>
+    <!-- Destructive/Error -->
+    <color name="btnDanger">#EF9A9A</color>
+    <color name="btnOnDanger">#B71C1C</color>
+    <color name="btnOutlineText">#1AB3E6</color>
+    <!-- Banner colors (adjusted for dark mode) -->
+    <color name="bannerRequiredBg">#4E3E1E</color>
+    <color name="bannerRequiredAccent">#FFB300</color>
+    <color name="bannerGrantedBg">#2E3D2E</color>
+    <color name="bannerGrantedAccent">#66BB6A</color>
+    <!-- Background and foreground -->
+    <color name="background">#1A2332</color>
+    <color name="foreground">#E8EDF2</color>
+    <color name="cardBackground">#253141</color>
+    <color name="hintText">#9E9E9E</color>
+</resources>
+

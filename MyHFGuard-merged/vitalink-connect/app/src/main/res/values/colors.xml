@@ -1,0 +1,29 @@
+<resources>
+    <!-- Primary: hsl(195 85% 41%) = #0D9BCF -->
+    <color name="btnPrimary">#0D9BCF</color>
+    <color name="btnOnPrimary">#FFFFFF</color>
+    <!-- Secondary: hsl(142 52% 56%) = #5CB85C -->
+    <color name="btnSecondary">#5CB85C</color>
+    <color name="btnOnSecondary">#FFFFFF</color>
+    <!-- Destructive/Error -->
+    <color name="btnDanger">#E53935</color>
+    <color name="btnOnDanger">#FFFFFF</color>
+    <color name="btnOutlineText">#0D9BCF</color>
+    <!-- Banner colors -->
+    <color name="bannerRequiredBg">#FFF3CD</color>
+    <color name="bannerRequiredAccent">#FFA000</color>
+    <color name="bannerGrantedBg">#DFF0D8</color>
+    <color name="bannerGrantedAccent">#2E7D32</color>
+    <!-- Background and foreground - matching web app -->
+    <!-- Background: hsl(210 40% 98%) = #F5F9FC -->
+    <color name="background">#F5F9FC</color>
+    <!-- Foreground: hsl(215 25% 27%) = #2C3E50 -->
+    <color name="foreground">#2C3E50</color>
+    <!-- Card: hsl(0 0% 100%) = #FFFFFF -->
+    <color name="cardBackground">#FFFFFF</color>
+    <!-- Muted foreground: hsl(215 16% 47%) = #6B7A8F -->
+    <color name="hintText">#6B7A8F</color>
+    <!-- Border: hsl(214 32% 91%) = #E3E8ED -->
+    <color name="border">#E3E8ED</color>
+</resources>
+

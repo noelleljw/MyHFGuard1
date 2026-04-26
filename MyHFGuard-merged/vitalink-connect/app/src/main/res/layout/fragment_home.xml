@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- First Time User Banner -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardFirstTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/bannerRequiredBg"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Setup Required"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/bannerRequiredAccent"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Grant Health Connect permissions\n2. Ensure your device is connected to Health Connect\n3. Allow Health Connect to retrieve your health data"
+                        android:textSize="14sp"
+                        android:textColor="@color/foreground"
+                        android:lineSpacingMultiplier="1.2"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSetupPermissions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Grant Permissions"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="@color/bannerRequiredAccent"
+                        app:cornerRadius="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Permissions Status Banner -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/bannerBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:id="@+id/bannerAccent"
+                        android:layout_width="6dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="12dp"
+                        android:background="@color/bannerRequiredAccent"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/txtBannerTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Permissions Required"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/foreground"/>
+
+                        <TextView
+                            android:id="@+id/txtBannerDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please grant Health Connect permissions"
+                            android:textSize="14sp"
+                            android:textColor="@color/foreground"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Action Cards Grid (2 per row) -->
+            <LinearLayout
+                android:id="@+id/cardsContainer"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center">
+
+                <!-- Grant Permissions Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardGrant"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/ic_lock_lock"
+                            android:tint="@color/btnPrimary"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Grant Permissions"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@color/foreground"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Collect Data Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardRead"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/ic_menu_view"
+                            android:tint="@color/btnPrimary"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Collect Data"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@color/foreground"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Web Charts Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardWebCharts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginHorizontal="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/cardBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@android:drawable/ic_menu_sort_by_size"
+                        android:tint="@color/btnPrimary"
+                        android:layout_marginEnd="16dp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="View Web Charts"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/foreground"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="View detailed charts on web dashboard"
+                            android:textSize="14sp"
+                            android:textColor="@color/foreground"/>
+                    </LinearLayout>
+                    
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_send"
+                        android:tint="@color/foreground"
+                        android:alpha="0.5"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Sync Status Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSyncStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/cardBackground">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:id="@+id/syncRing"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/sync_ring_bg"
+                        android:backgroundTint="@color/btnSecondary"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtSyncTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Background Sync"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@color/foreground"/>
+
+                        <TextView
+                            android:id="@+id/txtSyncStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Last sync: —"
+                            android:textSize="12sp"
+                            android:textColor="@color/foreground"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/layoutLoading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/txtLoadingStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Syncing data..."
+                    android:textColor="@color/foreground"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtNoDataHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No data for today"
+                android:textSize="12sp"
+                android:textColor="@color/hintText"
+                android:padding="8dp"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/layoutDataCards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/cardBackground">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Steps"
+                                android:textStyle="bold"
+                                android:textColor="@color/foreground"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:id="@+id/valSteps"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/foreground"
+                                android:textSize="18sp"
+                                android:layout_marginTop="4dp"/>
+
+                            <TextView
+                                android:id="@+id/statusSteps"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Not Synced"
+                                android:textColor="@color/hintText"
+                                android:textSize="12sp"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/cardBackground">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Distance (m)"
+                                android:textStyle="bold"
+                                android:textColor="@color/foreground"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:id="@+id/valDist"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/foreground"
+                                android:textSize="18sp"
+                                android:layout_marginTop="4dp"/>
+
+                            <TextView
+                                android:id="@+id/statusDist"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Not Synced"
+                                android:textColor="@color/hintText"
+                                android:textSize="12sp"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/cardBackground">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Heart Rate"
+                                android:textStyle="bold"
+                                android:textColor="@color/foreground"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:id="@+id/valHr"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textColor="@color/foreground"
+                                android:textSize="18sp"
+                                android:layout_marginTop="4dp"/>
+
+                            <TextView
+                                android:id="@+id/statusHr"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Not Synced"
+                                android:textColor="@color/hintText"
+                                android:textSize="12sp"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/cardBackground">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="SpO2"
+                                android:textStyle="bold"
+                                android:textColor="@color/foreground"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:id="@+id/valSpo2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textColor="@color/foreground"
+                                android:textSize="18sp"
+                                android:layout_marginTop="4dp"/>
+
+                            <TextView
+                                android:id="@+id/statusSpo2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Not Synced"
+                                android:textColor="@color/hintText"
+                                android:textSize="12sp"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOutput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ready"
+                android:textSize="12sp"
+                android:textColor="@color/foreground"
+                android:alpha="0.7"
+                android:padding="8dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
