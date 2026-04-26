@@ -1,0 +1,55 @@
+# Vitalink Test Cases
+
+---
+
+## 1. Admin Module (Authentication & User Management)
+
+| Test ID | Description | Steps | Test Data | Expected Result | Negative Cases |
+|---------|-------------|-------|-----------|----------------|----------------|
+| ADM-001 | Admin login with valid credentials | 1. Open `/admin/login` page\n2. Enter email and password\n3. Click **Login** | Email: `myhfguard.host@gmail.com`\nPassword: `ValidPass123` | Redirect to Admin Dashboard, session token stored | Invalid email format, wrong password, inactive account |
+| ADM-002 | Admin logout | 1. Click **Logout** button on dashboard | N/A | Session cleared, redirected to login page | Logout button hidden when not authenticated |
+| ADM-003 | Create new admin user (role assignment) | 1. Navigate to **User Management**\n2. Click **Add Admin**\n3. Fill form and submit | Email: `newadmin@example.com`\nPassword: `StrongPass!@#` | New admin appears in list, can login | Duplicate email, weak password, missing fields |
+| ADM-004 | Delete admin user | 1. Select admin from list\n2. Click **Delete** and confirm | Admin ID: `12345` | Admin removed, cannot login | Deleting self, non‑existent ID |
+| ADM-005 | Reset admin password | 1. Click **Forgot Password** on login page\n2. Enter registered email\n3. Follow reset link | Email: `myhfguard.host@gmail.com` | Password reset email sent, new password works | Unregistered email, expired token |
+| ADM-006 | Edit admin profile details | 1. Open **Profile** page after login\n2. Change display name and phone number\n3. Save changes | Name: `Super Admin`\nPhone: `+1234567890` | Profile updated, reflected in user list | Invalid phone format, empty name |
+| ADM-007 | Session timeout handling | 1. Login as admin\n2. Remain idle for configured timeout (e.g., 15 min)\n3. Attempt to navigate | N/A | Session expires, redirected to login with timeout notice | Activity just before timeout should keep session alive |
+
+---
+
+## 2. Vitals Extraction (Blood Pressure OCR & Manual Entry)
+
+| Test ID | Description | Steps | Test Data | Expected Result | Negative Cases |
+|---------|-------------|-------|-----------|----------------|----------------|
+| VIT-001 | OCR extraction from clear BP image | 1. Navigate to **Capture Blood Pressure**\n2. Upload a clear BP image\n3. Submit | Image: `bp_clear.jpg` (systolic 120, diastolic 80, pulse 72) | Parsed values stored correctly, displayed in UI | Blurry image, rotated image, unreadable digits |
+| VIT-002 | OCR extraction from low‑contrast image | Same as VIT-001 | Image: `bp_low_contrast.jpg` | System returns **Extraction Failed** error, prompts retry | Image with no BP numbers |
+| VIT-003 | Manual entry of BP values | 1. Open **Manual Entry** form\n2. Input systolic, diastolic, pulse\n3. Submit | Systolic: `130`\nDiastolic: `85`\nPulse: `78` | Values saved, chart updates | Non‑numeric input, out‑of‑range values (e.g., systolic 300) |
+| VIT-004 | Duplicate entry detection (same timestamp) | 1. Submit manual entry with current timestamp\n2. Immediately submit identical entry | Same as VIT-003 | Second submission rejected with **Duplicate Entry** warning | Different timestamps but same values (allowed) |
+| VIT-005 | Date‑range filter for vitals trend | 1. Open **Vitals Trend** chart\n2. Select date range (e.g., last 1 month) | Date range: `2025-11-01` to `2025-11-30` | Chart displays only entries within range | Invalid date range (start > end) |
+| VIT-006 | OCR handling of rotated image | 1. Upload BP image rotated 90° clockwise\n2. Submit for extraction | Image: `bp_rotated.jpg` | System auto‑rotates, extracts correct values | Image rotated 180° without metadata → failure |
+| VIT-007 | Bulk upload of multiple BP images | 1. Select multiple images (3) in **Capture** dialog\n2. Submit all at once | Images: `bp1.jpg`, `bp2.jpg`, `bp3.jpg` | All three readings stored, displayed in list view | One image corrupted → partial success with error report |
+| VIT-008 | Validation of manual entry limits | 1. Enter systolic `45` (below realistic lower bound)\n2. Submit | Systolic: `45` | UI shows **Value out of range** warning, prevents save | Upper bound breach (e.g., systolic `250`) similarly handled |
+
+---
+
+## 3. Admin Dashboard (Overview & Patient Management)
+
+| Test ID | Description | Steps | Test Data | Expected Result | Negative Cases |
+|---------|-------------|-------|-----------|----------------|----------------|
+| DASH-001 | Dashboard loads with summary cards | 1. Login as admin\n2. Navigate to `/admin/dashboard` | N/A | Cards show total patients, recent BP readings, alerts | Dashboard fails to load when API returns 500 |
+| DASH-002 | Patient list pagination | 1. Open **Patient List**\n2. Navigate through pages | Page size: 20 | Correct patients displayed per page, total count accurate | Requesting page beyond max returns empty list |
+| DASH-003 | Search patient by ID/name | 1. Enter search term in **Search** box\n2. Press **Enter** | Term: `John Doe` or ID `P12345` | Matching patient rows displayed | No matches → display **No results** message |
+| DASH-004 | View patient detail from dashboard | 1. Click **View** on a patient row | Patient ID: `P12345` | Detail page shows vitals chart, OCR/manual entries | Clicking on non‑existent patient ID (broken link) |
+| DASH-005 | Export patient data (CSV) | 1. Select patient(s)\n2. Click **Export CSV** | Selected IDs: `P12345, P67890` | CSV file downloaded with correct columns | Export with zero selection → disabled button |
+| DASH-006 | Access control – non‑admin cannot view dashboard | 1. Login with regular user account\n2. Attempt to navigate to `/admin/dashboard` | N/A | Redirected to **Access Denied** page | Admin token spoofed → should still be denied |
+| DASH-007 | Bulk patient status update | 1. Select multiple patients\n2. Choose **Mark Inactive** from bulk actions\n3. Confirm | Patient IDs: `P111,P222` | All selected patients status set to Inactive, UI reflects change | No permission for bulk action → error shown |
+| DASH-008 | Real‑time vitals refresh on dashboard | 1. Open dashboard, note current vitals chart\n2. Submit a new BP reading from another device\n3. Observe chart auto‑refresh | New reading: systolic 118, diastolic 76, pulse 70 | Chart updates within 5 seconds without manual reload | WebSocket disconnect → fallback to manual refresh prompt |
+| DASH-009 | Audit log entry creation | 1. Perform admin action (e.g., delete user)\n2. Open **Audit Log** view | Action: Delete admin ID `12345` | Log shows timestamp, actor, action details | Log missing entry → alert admin |
+
+---
+
+**Notes**
+- All positive test cases assume a clean database state (use `sample_database.txt` as seed).
+- Negative cases verify proper error handling and user‑friendly messages.
+- Tests can be automated with Cypress/E2E or executed manually following the steps.
+
+*Generated on 2025‑12‑18*

@@ -1,0 +1,61 @@
+Merged base: MyHFGuard-main-WQver.zip
+Additional non-conflicting files copied from: MyHFGuard-main.zip
+
+Non-conflicting files added from second zip: 22
+ADD_FROM_SECOND: package.json
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/AppointmentsFragment.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/BaseActivity.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/HealthSyncManager.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/HomeFragment.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/HomeViewModel.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/LocalStore.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/LoginActivity.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/MainActivity.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/OnboardingActivity.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/PermissionsRationaleActivity.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/RegisterActivity.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/ReminderReceiver.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/ReminderScheduler.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/SettingsActivity.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/SyncReceiver.kt
+ADD_FROM_SECOND: vitalink-connect/app/src/main/java/com/vitalink/connect/VitalinkApplication.kt
+ADD_FROM_SECOND: vitalink/server/.env.new
+ADD_FROM_SECOND: vitalink/web/src/components/LanguageToggle.tsx
+ADD_FROM_SECOND: vitalink/web/src/lib/hfAlerts.ts
+ADD_FROM_SECOND: vitalink/web/src/lib/i18n.ts
+ADD_FROM_SECOND: vitalink/web/src/routes/hfExtraRoutes.js
+
+Conflicting files needing manual review: 33
+CONFLICT: COMPLETE_RESETUP_GUIDE.md
+CONFLICT: package-lock.json
+CONFLICT: vitalink/server/.env.example
+CONFLICT: vitalink/server/package-lock.json
+CONFLICT: vitalink/server/package.json
+CONFLICT: vitalink/server/server.js
+CONFLICT: vitalink/web/.env.local
+CONFLICT: vitalink/web/package-lock.json
+CONFLICT: vitalink/web/package.json
+CONFLICT: vitalink/web/src/App.tsx
+CONFLICT: vitalink/web/src/components/Navigation.tsx
+CONFLICT: vitalink/web/src/lib/api.ts
+CONFLICT: vitalink/web/src/lib/supabase.js
+CONFLICT: vitalink/web/src/lib/supabaseClient.ts
+CONFLICT: vitalink/web/src/main.tsx
+CONFLICT: vitalink/web/src/pages/AIAssistant.tsx
+CONFLICT: vitalink/web/src/pages/AdminDashboard.jsx
+CONFLICT: vitalink/web/src/pages/AdminLogin.jsx
+CONFLICT: vitalink/web/src/pages/AuthCallback.jsx
+CONFLICT: vitalink/web/src/pages/Contact.tsx
+CONFLICT: vitalink/web/src/pages/Dashboard.tsx
+CONFLICT: vitalink/web/src/pages/Education.tsx
+CONFLICT: vitalink/web/src/pages/Login.tsx
+CONFLICT: vitalink/web/src/pages/Medication.tsx
+CONFLICT: vitalink/web/src/pages/NotFound.tsx
+CONFLICT: vitalink/web/src/pages/Register.tsx
+CONFLICT: vitalink/web/src/pages/ScheduleReminder.tsx
+CONFLICT: vitalink/web/src/pages/SelfCheck.tsx
+CONFLICT: vitalink/web/src/pages/SymptomChecker.tsx
+CONFLICT: vitalink/web/src/pages/VitalsTracker.tsx
+CONFLICT: vitalink/web/src/pages/admin/AdminLogin.tsx
+CONFLICT: vitalink/web/src/pages/admin/PatientDetail.tsx
+CONFLICT: vitalink/web/src/pages/admin/PatientList.tsx
